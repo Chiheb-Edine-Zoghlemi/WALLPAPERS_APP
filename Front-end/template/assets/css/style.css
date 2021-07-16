@@ -1,30 +1,40 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+:root {
+  --theme: #ff4500;
+  --background : #2d3939 ; 
+  --text : #fff; 
 
-
-/*   Navigation  */
-#theme:hover svg {
-    -webkit-animation: rotate-center 0.6s linear both;
-	        animation: rotate-center 0.6s linear both;
 }
+body{
+  background-color: #2d3939;
+  
+}
+/*   Navigation  */
+.navbar-toggler i{
+  color: var(--theme);
+
+}
+nav ul li a {
+  font-size: 1.3em;}
 nav {
-    border-bottom: 2px solid #ff4500;
+    border-bottom: 2px solid var(--theme);
    /* box-shadow: rgba(255, 69, 0, 0.75) 0px 1px 3px;*/
 }
-nav .navbar-brand:hover span  span{
-    color: #ff4500;
+nav > div > a > span > span{
+    color: var(--theme) !important;
 }
 .navbar-light .navbar-brand:hover  {
-    color: #fff;
+    color: var(--text);
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link {
-    color: #fff;
+    color: var(--text);
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #ff4500;
+    color: var(--theme);
 }
 .navbar-light .navbar-brand {
-    color: #fff;
+    color: var(--text);
 }
 /* logo */ 
 
@@ -34,23 +44,23 @@ svg {
 }
 
 .navbar-light .navbar-toggler {
-    border-color: #fff;
+    border-color: var(--text);
 }
 /* footer */ 
 footer a , footer i {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
     font-size: larger;
 }
 footer:hover a {
-    color: #ff4500;
+    color: var(--theme);
 }
 footer:hover i {
-    color: #ff4500;
+    color: var(--theme);
 }
 footer {
-    color : #fff ; 
-    border-top: 2px solid #ff4500;
+    color : var(--text) ; 
+    border-top: 2px solid var(--theme);
     /* box-shadow: rgba(255, 69, 0, 0.75) 0px 1px -10px;*/
 }
 /* custom scrool bar */ 
@@ -61,17 +71,17 @@ footer {
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #2d3939; 
+    background: var(--background); 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #fff; 
+    background: var(--text); 
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff; 
+    background: var(--text); 
   }
 /* card */ 
   .card {
@@ -86,13 +96,17 @@ footer {
   }
   
   .card-body  a {
-      font-size: 1.5em;
+      font-size: 1.2em;
   }
   .card-body  a:hover {
-    color: #ff4500;
+    color: var(--theme);
     font-weight: bolder;
 }
 
+.card-body  span:nth-child(1):hover{
+  color: var(--theme);
+  font-weight: bold;
+}
 
 .card-body .btn {
    
@@ -106,41 +120,115 @@ footer {
     background-color: transparent;
 }
 .card-body  a {
-    color : #fff;
+    color : var(--text);
 }
-.modal-content{
-    background-color: transparent;
+#stat{
+  color:var(--text);
+}
+#stat strong{
+  color:var(--theme);
+}
+#stat span{
+  width: 20%;
+  padding: 1.5em;
+  border: 1px solid var(--text);
+}
+#stat span:hover{
+  width: 20%;
+  padding: 1.5em;
+  border: 1px solid var(--theme);
+  
+  
+}
+#cover {
+  /* The image used */
+  background-image: url("https://raw.githubusercontent.com/Chiheb-Edine-Zoghlemi/Wall_papers/main/sinister-shack-image-1920%C3%971080.jpg");
+
+  /* Set a specific height */
+  min-height: 700px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .tracking-in-expand {
 	-webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
+/* modal */ 
+.modal-header a i  {
+  color: var(--text);
+}
+.modal-content{
+  background-color: var(--background);
+}
+/* input */ 
+input[type="color" i] {
+  appearance: auto;
+  width: 44px;
+  height: auto;
+  border: none;
+  background-color: transparent;
+}
+.form-control-color {
 
+  padding-top: 0.65em ; 
+}
+.form-control:focus {
+  color: var(--background);
+  background-color: transparent;
+  border-color:none;
+  outline: none;
+  box-shadow: none ;
+}
+/* button */ 
+.btn-check:focus+.btn, .btn:focus {
+  outline: none;
+  box-shadow:none;
+}
+.more_data {
+  border: 1px solid var(--text);
+  width: 15%;
+  color: var(--theme);
+  background-color:var(--background);
+}
+.card-body{
+  color: var(--text);
+  font-size: large;
+}
+.more_data:hover {
+  color: var(--text);
+  border: 1px solid var(--theme);
+  background-color:var(--theme);
+}
+/* animation */ 
  @-webkit-keyframes shadow-pop-tr {
     0% {
-      -webkit-box-shadow: 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500;
-              box-shadow: 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500;
+      -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+              box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
       -webkit-transform: translateX(0) translateY(0);
               transform: translateX(0) translateY(0);
     }
     100% {
-      -webkit-box-shadow: 1px -1px #ff4500, 2px -2px #ff4500, 3px -3px #ff4500, 4px -4px #ff4500, 5px -5px #ff4500, 6px -6px #ff4500, 7px -7px #ff4500, 8px -8px #ff4500;
-              box-shadow: 1px -1px #ff4500, 2px -2px #ff4500, 3px -3px #ff4500, 4px -4px #ff4500, 5px -5px #ff4500, 6px -6px #ff4500, 7px -7px #ff4500, 8px -8px #ff4500;
+      -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+              box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
       -webkit-transform: translateX(-8px) translateY(8px);
               transform: translateX(-8px) translateY(8px);
     }
   }
   @keyframes shadow-pop-tr {
     0% {
-      -webkit-box-shadow: 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500;
-              box-shadow: 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500, 0 0 #ff4500;
+      -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+              box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
       -webkit-transform: translateX(0) translateY(0);
               transform: translateX(0) translateY(0);
     }
     100% {
-      -webkit-box-shadow: 1px -1px #ff4500, 2px -2px #ff4500, 3px -3px #ff4500, 4px -4px #ff4500, 5px -5px #ff4500, 6px -6px #ff4500, 7px -7px #ff4500, 8px -8px #ff4500;
-              box-shadow: 1px -1px #ff4500, 2px -2px #ff4500, 3px -3px #ff4500, 4px -4px #ff4500, 5px -5px #ff4500, 6px -6px #ff4500, 7px -7px #ff4500, 8px -8px #ff4500;
+      -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+              box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
       -webkit-transform: translateX(-8px) translateY(8px);
               transform: translateX(-8px) translateY(8px);
     }
@@ -167,26 +255,6 @@ footer {
     }
     100% {
       opacity: 1;
-    }
-  }
-  @-webkit-keyframes rotate-center {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
-  }
-  @keyframes rotate-center {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
     }
   }
   
