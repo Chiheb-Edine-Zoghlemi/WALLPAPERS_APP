@@ -4,7 +4,7 @@
   --theme: #ff4500;
   --background : #2d3939 ; 
   --text : #fff; 
-
+  
 }
 body{
   background-color: #2d3939;
@@ -124,21 +124,20 @@ footer {
 }
 #stat{
   color:var(--text);
+  font-size: 1.3em;
 }
 #stat strong{
   color:var(--theme);
 }
 #stat span{
-  width: 20%;
+  width: 22%;
   padding: 1.5em;
   border: 1px solid var(--text);
+  border-radius: 15px;
 }
 #stat span:hover{
-  width: 20%;
-  padding: 1.5em;
+
   border: 1px solid var(--theme);
-  
-  
 }
 #cover {
   /* The image used */

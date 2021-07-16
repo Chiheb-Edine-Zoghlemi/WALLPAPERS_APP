@@ -21,3 +21,13 @@ document.getElementById('bg_theme').addEventListener("click", e => {
     }
     ite++ ;
 });
+
+
+
+document.getElementById('try').addEventListener("click", e => {
+    $("#cover").stop().animate({opacity: 0},1000,function(){
+        $(this).css({'background-image': "url('https://raw.githubusercontent.com/Chiheb-Edine-Zoghlemi/Wall_papers/main/anomaly-by-tobias-roetsch-1920%C3%971080.jpg')"})
+                   .animate({opacity: 1},{duration:1000});
+     });
+    
+  });
