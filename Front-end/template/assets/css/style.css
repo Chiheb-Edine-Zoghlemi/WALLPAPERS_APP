@@ -4,7 +4,14 @@
   --theme: #ff4500;
   --background : #2d3939 ; 
   --text : #fff; 
+  --loading : url('../img/loading_light.svg' )  ;
   
+}
+.loading {
+  background: no-repeat center  var(--loading);
+}
+html {
+  scroll-behavior: smooth;
 }
 body{
   background-color: #2d3939;
