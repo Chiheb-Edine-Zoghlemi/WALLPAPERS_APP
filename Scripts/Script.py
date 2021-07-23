@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests as re
 from datetime import date
 import json
+import sqlite3
 
 
 def scrap_repo():
@@ -22,11 +23,19 @@ def scrap_repo():
         print('[ Unable to request the repo   ]')
 
 
-def save_to_file(links):
+def save(links):
     today = date.today()
-    content = {"Date": today.strftime("%d/%m/%Y"), "Links": links}
-    with open('data.json', 'w') as fp:
-        json.dump(content, fp)
+    try:
+        con = sqlite3.connect('../Back-end/Wallpapers.db')
+        cur = con.cursor()
+    except:
+        print('[ ERROR  CONNECTING TO THE DATABASE ]')
+        return 0
+    for link in links:
+        row = (link, today.strftime("%d/%m/%Y"), 0, 0)
+        cur.execute("INSERT INTO Wallpapers  (URL,DATE,VIEWS,DOWLOADS) VALUES (?,?,?,?)", row)
+    con.commit()
+    con.close()
 
 
 if __name__ == "__main__":
@@ -34,8 +43,8 @@ if __name__ == "__main__":
     print('[ SCRAPING THE REPO   ]')
     links = scrap_repo()
     print('[ SCRAPING IS TERMINATED ]')
-    print('[ SAVING TO FILE ]')
-    save_to_file(links)
+    print('[ SAVING TO DATABASE ]')
+    save(links)
     print('[ SAVING is TERMINATED ]')
     # uploading to the server
     print('[ SCRIPT IS TERMINATED ]')

@@ -1,38 +1,302 @@
-.App {
-  text-align: center;
+
+
+/* general */ 
+body {
+  margin: 0;
+  background-color: #2d3939;
+}
+html {
+  scroll-behavior: smooth;
+}
+hr {
+  border: 2px solid var(--theme);
+}
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text); 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text); 
+}
+
+/*********************************************/
+/* navigation */ 
+.navbar-toggler i{
+    color: var(--theme);
+  
+  }
+  nav ul li a {
+    font-size: 1.3em;}
+  nav {
+      border-bottom: 2px solid var(--theme);
+     /* box-shadow: rgba(255, 69, 0, 0.75) 0px 1px 3px;*/
+  }
+  nav > div > a > span > span{
+      color: var(--theme) !important;
+  }
+  .navbar-light .navbar-brand:hover  {
+      color: var(--text);
+  }
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link {
+      color: var(--text);
+  }
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+      color: var(--theme);
+  }
+  .navbar-light .navbar-brand {
+      color: var(--text);
+  }
+
+  
+  svg {
+      font-family: 'Oleo Script', cursive;
+      font-weight: 600;
+  }
+  
+  .navbar-light .navbar-toggler {
+      border-color: var(--text);
+  }
+
+  input[type="color" i] {
+    appearance: auto;
+    width: 44px;
+    height: auto;
+    border: none;
+    background-color: transparent;
+  }
+  .form-control-color {
+  
+    padding-top: 0.65em ; 
+  }
+  .form-control:focus {
+    color: var(--background);
+    background-color: transparent;
+    border-color:none;
+    outline: none;
+    box-shadow: none ;
+  }
+  /************************************************************/
+
+  /** Footer **/ 
+
+footer a , footer i {
+  color: var(--text);
+  text-decoration: none;
+  font-size: larger;
+}
+footer:hover a {
+  color: var(--theme);
+}
+footer:hover i {
+  color: var(--theme);
+}
+
+footer {
+  color : var(--text) ; 
+  border-top: 2px solid var(--theme);
+  /* box-shadow: rgba(255, 69, 0, 0.75) 0px 1px -10px;*/
+}
+  /*****************************************************************/
+
+
+/*** button *****/ 
+.btn-check:focus+.btn, .btn:focus {
+  outline: none;
+  box-shadow:none;
+}
+.more_data {
+  border: 1px solid var(--text);
+  width: 20%;
+  color: var(--theme);
+  background-color: transparent;
+}
+.more_data:hover {
+  color: var(--text);
+  border: 1px solid var(--theme);
+  background-color:var(--theme);
+}
+  /*****************************************************************/
+/** card **/
+.show_card {
+  -webkit-animation: fade-in 1.5s linear   forwards;
+  animation: fade-in 1.5s linear   forwards;
+}
+
+.card {
+  border: none;
+  margin-top: 3rem !important ;
+  margin-bottom: 3rem !important;
+}
+.card:hover {
+-webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+
+}
+
+.card-body  span {
+  font-size: 1em;
+}
+.card-body  span:hover {
+color: var(--theme);
+font-weight: bolder;
+}
+
+.card-body  span:nth-child(1):hover{
+color: var(--theme);
+font-weight: bold;
+}
+
+.card-body .btn {
+
+display: inline;
+}
+.card-body {
+
+padding: .2rem 0 0 0;
+}
+.card {
+background-color: transparent;
+}
+.card-body  span {
+color : var(--text);
+}
+#stat{
+color:var(--text);
+font-size: 1.3em;
+}
+#stat strong{
+color:var(--theme);
+}
+#stat span{
+width: 22%;
+padding: 1.5em;
+border: 1px solid var(--text);
+border-radius: 15px;
+}
+#stat span:hover{
+
+border: 1px solid var(--theme);
+}
+.card-body{
+  color: var(--text);
+  font-size: large;
+}
+.card-body  span:nth-child(2) span {
+  cursor: pointer;
+}
+/**********************************************************************************************************/
+/** cover **/ 
+#cover {
+  /* The image used */
+ 
+
+  /* Set a specific height */
+  min-height: 700px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+/*****************************************************************************************************************/
+/** go to top button **/ 
+
+
+
+.myBtn {
+  display: none ;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: var(--theme);
+  color: var(--text);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 15%;
+}
+.btn > span > i {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.btn  > span > i:nth-child(3) {
+  -webkit-animation: fade-in 1s linear 1.8s infinite forwards;
+  animation: fade-in 1s linear 1.8s infinite forwards;
+}
+.btn  > span > i:nth-child(2) {
+  -webkit-animation: fade-in 1s linear 0.9s infinite forwards;
+  animation: fade-in 1s linear  infinite 0.9s  forwards;
+}
+.btn  > span > i:nth-child(1) {
+  -webkit-animation: fade-in 1s linear  infinite forwards;
+  animation: fade-in 1s linear  infinite forwards;
+}
+/************************************/
+/* animation */ 
+@-webkit-keyframes shadow-pop-tr {
+  0% {
+    -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+            box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+            box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+    -webkit-transform: translateX(-8px) translateY(8px);
+            transform: translateX(-8px) translateY(8px);
+  }
+}
+@keyframes shadow-pop-tr {
+  0% {
+    -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+            box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+            box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+    -webkit-transform: translateX(-8px) translateY(8px);
+            transform: translateX(-8px) translateY(8px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
   }
 }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*******************************************************************/

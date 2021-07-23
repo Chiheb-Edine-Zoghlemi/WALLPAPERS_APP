@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import './index.css';
+import 'jquery-color';
+import 'popper.js/dist/popper';
+import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <App />
