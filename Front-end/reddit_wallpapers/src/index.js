@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './index.css';
 import 'jquery-color';
-import 'popper.js/dist/popper';
+
+
 import App from './App';
 ReactDOM.render(
   <React.StrictMode>

@@ -1,21 +1,19 @@
 import React from 'react'
+import Modal from 'react-bootstrap/Modal';
 
-const Modal = () => {
+const Modal_Preview = (props) => {
+ 
     return (
-    <div className="modal fade" id="preview" data-bs-backdrop="preview" data-bs-keyboard="false"  aria-labelledby="preview" aria-hidden="true">
-    <div className="modal-dialog modal-xl">
-      <div className="modal-content">
-        <div className="modal-header">
-          <a data-bs-dismiss="modal" aria-label="Close" ><i className="bi bi-x-lg"></i></a>
-        </div>
-        <div className="modal-body">
-          <img loading="lazy"  src="https://raw.githubusercontent.com/Chiheb-Edine-Zoghlemi/Wall_papers/main/anomaly-by-tobias-roetsch-1920%C3%971080.jpg" width="auto" className="card-img-top  "/>
-        </div>
-        
-      </div>
-    </div>
-  </div>
+      <Modal show={props.show}    size="xl"  centered >
+      <Modal.Header >
+        <span className="close_btn" onClick={props.handleClose}  ><i className="bi bi-x-lg"></i></span>
+      </Modal.Header>
+      <Modal.Body>
+      <img src={props.src} width="auto" className="card-img-top " alt="..."/>
+      </Modal.Body>
+    </Modal>
+    
     )
 }
 
-export default Modal
+export default Modal_Preview

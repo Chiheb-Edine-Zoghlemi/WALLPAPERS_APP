@@ -73,7 +73,7 @@ export const Header = () => {
                     c1.736,11.281,2.603,23.431,2.603,35.58C309.559,408.98,292.203,452.37,268.773,466.254"/>
                 </g>
                 </svg>
-                <span className="tracking-in-expand">  <span>R</span>eddit-<span>W</span>allpapers  </span>
+                <span className="tracking-in-expand">  <span>R</span>eddit <span>W</span>allpaper <span>C</span>ollection  </span>
               </span>
               
               <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
@@ -84,9 +84,9 @@ export const Header = () => {
                     <span className="d-lg-none   d-sm-inline ">&nbsp;Theme</span> 
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link " id="theme" onClick={change_bg}>
+                    <span className="nav-link " id="theme" onClick={change_bg}>
                       <i className={bg} id="bg_theme"></i>
-                  </a>
+                  </span>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link"  href="https://www.facebook.com/ChihebEdineZoghlemi/" rel="noopener noreferrer" target="_blank" ><i className="bi bi-facebook" ></i> <span className="d-lg-none   d-sm-inline ">&nbsp;Facebook</span> </a>

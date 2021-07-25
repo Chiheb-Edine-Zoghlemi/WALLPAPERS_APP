@@ -1,16 +1,28 @@
 import React from 'react'
-import { useState } from 'react';
-
+import { useState  } from 'react';
+import axios from 'axios'
 const Card = (props) => {
-
   const [loaded, setLoaded] = useState(false);
-
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null ;
+    axios.get('http://localhost:5000/wallpapers/download/'+props.card[0]).then(response =>  {
+      add_view();
+      props.setdownload(!props.download);
+    }
+    );
+   
+  }
+  const add_view = () => {
+    axios.get('http://localhost:5000/wallpapers/view/'+props.card[0]).then(response =>  {
+    });
+  }
   
  
     return (
-        <div  style={loaded ? {} : { display: 'none' }} id={'card_item'+props.card[0]}  className="col-sm-12 col-md-6  col-lg-4 ">
+        <div  style={loaded ? {} : { display: 'none' }} id={'card_item'+props.card[0]}  className="col-sm-12 col-md-6  col-lg-4 show_card ">
           <div className="card " style={{'width': '85%'}}>
-          <img   src={props.card[1]} className="card-img-top  show_card" alt="..."  onLoad={() => setLoaded(true)}/>
+          <img   src={props.card[1]} className="card-img-top  " alt="..."  onLoad={() => setLoaded(true)}/>
           <div className="card-body ">
             <p className='d-flex justify-content-between'>
             <span className='p-2 d-flex justify-content-around'>
@@ -22,8 +34,11 @@ const Card = (props) => {
             <span     onClick={() => {
               props.sendDataToParent(props.card[1]);
             }}  className='p-2'><i className="bi bi-box-arrow-up "></i></span>
-            <span    className='p-2' data-bs-toggle="modal" data-bs-target="#preview" ><i className="bi bi-zoom-in"></i></span>
-            <span    className='p-2' ><i className="bi bi-cloud-download"></i></span>
+            <span    className='p-2'   onClick={() => {
+              add_view();
+              props.openModal(props.card[1]);
+            }}><i className="bi bi-zoom-in"></i></span>
+            <span    className='p-2' onClick={ () => {openInNewTab(props.card[1])}} ><i className="bi bi-cloud-download"></i></span>
             </span>
             </p>
           </div>
