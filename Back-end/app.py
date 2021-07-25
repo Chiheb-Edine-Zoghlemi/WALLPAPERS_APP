@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 import sqlite3
 from flask import g, json, request
@@ -6,6 +6,11 @@ from flask import g, json, request
 app = Flask(__name__)
 CORS(app)
 app.config['DATABASE'] = 'Wallpapers.db'
+app.config['Secret_Key'] = 'hedha el code taa el backend'
+
+@app.route("/")
+def my_index():
+    return render_template("index.html", Mat9oul_l7ad=app.config['Secret_Key'])
 
 
 def get_db():
