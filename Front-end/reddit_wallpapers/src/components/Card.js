@@ -6,7 +6,11 @@ const Card = (props) => {
   const openInNewTab = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null ;
-    axios.get('http://localhost:5000/wallpapers/download/'+props.card[0]).then(response =>  {
+    axios.get('/wallpapers/download/'+props.card[0], {
+      headers: {
+        'x-access-tokens': window.token
+      }}
+    ).then(response =>  {
       add_view();
       props.setdownload(!props.download);
     }
@@ -14,7 +18,11 @@ const Card = (props) => {
    
   }
   const add_view = () => {
-    axios.get('http://localhost:5000/wallpapers/view/'+props.card[0]).then(response =>  {
+    axios.get('/wallpapers/view/'+props.card[0] , {
+      headers: {
+        'x-access-tokens': window.token
+      }}
+      ).then(response =>  {
     });
   }
   
@@ -22,7 +30,10 @@ const Card = (props) => {
     return (
         <div  style={loaded ? {} : { display: 'none' }} id={'card_item'+props.card[0]}  className="col-sm-12 col-md-6  col-lg-4 show_card ">
           <div className="card " style={{'width': '85%'}}>
-          <img   src={props.card[1]} className="card-img-top  " alt="..."  onLoad={() => setLoaded(true)}/>
+          <img  onClick={() => {
+              add_view();
+              props.openModal(props.card[1]);
+            }}  src={props.card[1]} className="card-img-top " alt="..."  onLoad={() => setLoaded(true)}/>
           <div className="card-body ">
             <p className='d-flex justify-content-between'>
             <span className='p-2 d-flex justify-content-around'>
@@ -34,11 +45,8 @@ const Card = (props) => {
             <span     onClick={() => {
               props.sendDataToParent(props.card[1]);
             }}  className='p-2'><i className="bi bi-box-arrow-up "></i></span>
-            <span    className='p-2'   onClick={() => {
-              add_view();
-              props.openModal(props.card[1]);
-            }}><i className="bi bi-zoom-in"></i></span>
-            <span    className='p-2' onClick={ () => {openInNewTab(props.card[1])}} ><i className="bi bi-cloud-download"></i></span>
+           
+           <span    className='p-2' onClick={ () => {openInNewTab(props.card[1])}} ><i className="bi bi-cloud-download"></i></span>
             </span>
             </p>
           </div>
@@ -46,5 +54,10 @@ const Card = (props) => {
       </div>
     )
 }
-
+/* 
+ <span    className='p-2'   onClick={() => {
+              add_view();
+              props.openModal(props.card[1]);
+            }}><i className="bi bi-zoom-in"></i></span>
+*/
 export default Card

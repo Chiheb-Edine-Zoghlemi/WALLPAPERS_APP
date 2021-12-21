@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/react/css/main.403dc452.chunk.css",
+    "main.js": "/static/react/js/main.86170254.chunk.js",
+    "main.js.map": "/static/react/js/main.86170254.chunk.js.map",
+    "runtime-main.js": "/static/react/js/runtime-main.005b4f62.js",
+    "runtime-main.js.map": "/static/react/js/runtime-main.005b4f62.js.map",
+    "css/2.bf47d120.chunk.css": "/static/react/css/2.bf47d120.chunk.css",
+    "js/2.5875cc37.chunk.js": "/static/react/js/2.5875cc37.chunk.js",
+    "js/2.5875cc37.chunk.js.map": "/static/react/js/2.5875cc37.chunk.js.map",
+    "js/3.fe8eb0d2.chunk.js": "/static/react/js/3.fe8eb0d2.chunk.js",
+    "js/3.fe8eb0d2.chunk.js.map": "/static/react/js/3.fe8eb0d2.chunk.js.map",
+    "../../../Back-end/templates/index.html": "/static/react/../../../Back-end/templates/index.html",
+    "css/2.bf47d120.chunk.css.map": "/static/react/css/2.bf47d120.chunk.css.map",
+    "css/main.403dc452.chunk.css.map": "/static/react/css/main.403dc452.chunk.css.map",
+    "js/2.5875cc37.chunk.js.LICENSE.txt": "/static/react/js/2.5875cc37.chunk.js.LICENSE.txt",
+    "media/bootstrap-icons.css": "/static/react/media/bootstrap-icons.dfd0ea12.woff2",
+    "media/index.css": "/static/react/media/loading_light.7a3f128a.svg"
+  },
+  "entrypoints": [
+    "js/runtime-main.005b4f62.js",
+    "css/2.bf47d120.chunk.css",
+    "js/2.5875cc37.chunk.js",
+    "css/main.403dc452.chunk.css",
+    "js/main.86170254.chunk.js"
+  ]
+}

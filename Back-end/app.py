@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from functools import wraps
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 import sqlite3
 from flask import g, json, request
@@ -8,9 +9,29 @@ CORS(app)
 app.config['DATABASE'] = 'Wallpapers.db'
 app.config['Secret_Key'] = 'hedha el code taa el backend'
 
-@app.route("/")
+
+@app.route('/')
 def my_index():
     return render_template("index.html", Mat9oul_l7ad=app.config['Secret_Key'])
+@app.errorhandler(404)
+def page_not_found(e):
+    # your processing here
+    return render_template("index.html", Mat9oul_l7ad=app.config['Secret_Key'])
+
+def token_required(f):
+    @wraps(f)
+    def decorator(*args, **kwargs):
+        token = None
+        if 'x-access-tokens' in request.headers:
+            token = request.headers['x-access-tokens']
+        if not token:
+            return jsonify({'message': 'a valid token is missing'})
+        if token == app.config['Secret_Key']:
+            return f(*args, **kwargs)
+        else:
+            return jsonify({'message': 'token is invalid'})
+
+    return decorator
 
 
 def get_db():
@@ -28,11 +49,12 @@ def close_connection(exception):
 
 
 @app.route("/wallpapers", methods=['GET'])
+@token_required
 def get_wallpapers():
     cur = get_db().cursor()
     arg = request.args.get('arg')
     if not arg:
-        arg = 0
+        arg = 10
     cur.execute("select * from Wallpapers  where ID < :arg  ", {'arg': arg})
     wallpapers = cur.fetchall()
     response = app.response_class(
@@ -43,7 +65,8 @@ def get_wallpapers():
     return response
 
 
-@app.route("/wallpapers/download/<int:id_wallpaper>",  methods=['GET'])
+@app.route("/wallpapers/download/<int:id_wallpaper>", methods=['GET'])
+@token_required
 def set_download(id_wallpaper):
     con = get_db()
     cur = con.cursor()
@@ -60,6 +83,7 @@ def set_download(id_wallpaper):
 
 
 @app.route("/wallpapers/view/<int:id_wallpaper>", methods=['GET'])
+@token_required
 def set_view(id_wallpaper):
     con = get_db()
     cur = con.cursor()
@@ -72,8 +96,8 @@ def set_view(id_wallpaper):
         status=200,
         mimetype='application/json'
     )
-    return response 
+    return response
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run()

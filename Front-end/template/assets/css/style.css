@@ -70,26 +70,28 @@ footer {
     border-top: 2px solid var(--theme);
     /* box-shadow: rgba(255, 69, 0, 0.75) 0px 1px -10px;*/
 }
-/* custom scrool bar */ 
-/* width */
+
+/*
 ::-webkit-scrollbar {
     width: 5px;
   }
   
-  /* Track */
+
   ::-webkit-scrollbar-track {
     background: var(--background); 
   }
    
-  /* Handle */
+
   ::-webkit-scrollbar-thumb {
     background: var(--text); 
   }
   
-  /* Handle on hover */
+
   ::-webkit-scrollbar-thumb:hover {
     background: var(--text); 
   }
+*/
+  
 /* card */ 
   .card {
       border: none;

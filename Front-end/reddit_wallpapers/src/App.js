@@ -8,6 +8,11 @@ import Modal_Preview from './components/Modal';
 import { useEffect,useState } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
 
 function App() {
   const [covr_url, setcovr_url] = useState('https://raw.githubusercontent.com/Chiheb-Edine-Zoghlemi/Wall_papers/main/sinister-shack-image-1920%C3%971080.jpg');
@@ -72,7 +77,10 @@ window.addEventListener('scroll', scrollFunction);
         try {
           setIsLoading(true);
           const response = await axios.get(
-            `http://localhost:5000/wallpapers?arg=${page}`
+            `/wallpapers?arg=${page}`, {
+              headers: {
+                'x-access-tokens': window.token 
+              }}
           );
     
           setData([...response.data]);
@@ -93,8 +101,12 @@ window.addEventListener('scroll', scrollFunction);
 
 
   return (
+    <Router>
     <div className="App" >
       <Header/>
+      
+      <Switch>
+      <Route exact path="/">
       <Cover cover={covr_url}/>
       <main className="m-5">
       <div className="container-fluid">
@@ -129,11 +141,22 @@ window.addEventListener('scroll', scrollFunction);
       <i className="bi bi-chevron-down "></i>
       </span>
     </button>
-
-
+      </Route>
+      <Route path='*'> 
+      <div className="container-fluid" id='notfound'>
+        <div className="row mt-5 mb-5">
+          <div className='col-12 text-center'>
+          <h1 className='notfound' style={{'color':'var(--text)'}} >4<span style={{'color':'var(--theme)'}}>0</span>4</h1>
+          <span className='notfound' style={{'color':'var(--text)'}} >The requested Page is not found</span>
+          </div>
+        </div>
+      </div>
+       </Route>
+    </Switch>
       <Footer/>
       <Modal_Preview handleClose={handleClose} show={show} src={modal_url}/>
     </div>
+    </Router>
   );
 }
 

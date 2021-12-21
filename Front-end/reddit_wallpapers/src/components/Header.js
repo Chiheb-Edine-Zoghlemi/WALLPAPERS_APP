@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
    const [color, setcolor] = useState('#ff4500');
@@ -37,6 +38,7 @@ export const Header = () => {
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="bi bi-list" ></i>
               </button>
+              <Link to="/"> 
               <span className="navbar-brand ">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40"
                   viewBox="0 0 510.644 510.644"  >
@@ -75,6 +77,7 @@ export const Header = () => {
                 </svg>
                 <span className="tracking-in-expand">  <span>R</span>eddit <span>W</span>allpaper <span>C</span>ollection  </span>
               </span>
+              </Link>
               
               <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
                 

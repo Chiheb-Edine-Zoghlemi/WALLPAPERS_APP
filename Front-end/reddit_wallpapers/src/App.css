@@ -56,6 +56,17 @@ hr {
 }
 /*********************************************/
 /* navigation */ 
+#notfound {
+  height: 80vh;
+}
+.notfound {
+  font-size: 4em;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+a {
+  text-decoration: none;
+}
 .navbar-toggler i{
     color: var(--theme);
   
@@ -163,12 +174,17 @@ footer {
   border: none;
   margin-top: 3rem !important ;
   margin-bottom: 3rem !important;
+  animation-name: reverse;
+  animation-duration : 0.4s;
+  background-color: transparent;
 }
 .card:hover {
--webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+-webkit-animation: shadow-pop-tr 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+animation: shadow-pop-tr 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 
 }
+
+
 
 .card-body  span {
   font-size: 1em;
@@ -191,9 +207,7 @@ display: inline;
 
 padding: .2rem 0 0 0;
 }
-.card {
-background-color: transparent;
-}
+
 .card-body  span {
 color : var(--text);
 }
@@ -220,6 +234,11 @@ border: 1px solid var(--theme);
 }
 .card-body  span:nth-child(2) span {
   cursor: pointer;
+}
+
+.card-img-top {
+  height: 15em;
+  cursor: ne-resize;
 }
 /**********************************************************************************************************/
 /** cover **/ 
@@ -331,6 +350,39 @@ border: 1px solid var(--theme);
   }
 }
 
+
+@-webkit-keyframes reverse {
+  100% {
+    -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+            box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  0% {
+    -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+            box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+    -webkit-transform: translateX(-8px) translateY(8px);
+            transform: translateX(-8px) translateY(8px);
+  }
+}
+@keyframes reverse {
+  100% {
+    -webkit-box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+            box-shadow: 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme), 0 0 var(--theme);
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  0% {
+    -webkit-box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+            box-shadow: 1px -1px var(--theme), 2px -2px var(--theme), 3px -3px var(--theme), 4px -4px var(--theme), 5px -5px var(--theme), 6px -6px var(--theme), 7px -7px var(--theme), 8px -8px var(--theme);
+    -webkit-transform: translateX(-8px) translateY(8px);
+            transform: translateX(-8px) translateY(8px);
+  }
+}
+
+
+
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -342,6 +394,30 @@ border: 1px solid var(--theme);
 @keyframes fade-in {
   0% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
   }
   100% {
     opacity: 1;

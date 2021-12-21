@@ -9,7 +9,7 @@ const Modal_Preview = (props) => {
         <span className="close_btn" onClick={props.handleClose}  ><i className="bi bi-x-lg"></i></span>
       </Modal.Header>
       <Modal.Body>
-      <img src={props.src} width="auto" className="card-img-top " alt="..."/>
+      <img src={props.src} style={{'width':'100%'}} alt="..."/>
       </Modal.Body>
     </Modal>
     
